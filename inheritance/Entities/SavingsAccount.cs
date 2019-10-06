@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace inheritance.Entities
 {
-    class SavingsAccount : Account
+
+    // sealed class imped que saving accout seja herdada, ou seja, tenha subclass
+    sealed class SavingsAccount : Account
     {
 
         public double InterestRate { get; set; }
@@ -31,7 +33,8 @@ namespace inheritance.Entities
         } */
 
             // palavra base. chama o metodo da superclasse.
-        public override void Withdraw(double amount)
+            // sealed metódo impede que método receba override em uma subclass. - só serve para metodos override
+        public sealed override void Withdraw(double amount)
         {
             base.Withdraw(amount);
             Balance -= 2.0;
